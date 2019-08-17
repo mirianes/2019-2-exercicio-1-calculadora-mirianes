@@ -3,7 +3,9 @@ package br.ufpe.cin.android.calculadora
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -118,8 +120,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_Equal.setOnClickListener {
-            val value = eval(text_calc.text.toString())
-            text_info.text = "$value"
+            try {
+                val value = eval(text_calc.text.toString())
+                text_info.text = "$value"
+            } catch (e: Exception) {
+                Toast.makeText(applicationContext, "Expressão Inválida", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
