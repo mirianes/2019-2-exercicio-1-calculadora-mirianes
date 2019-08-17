@@ -1,13 +1,121 @@
 package br.ufpe.cin.android.calculadora
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btn_7.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("7")
+            text_calc.text = exp
+        }
+
+        btn_8.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("8")
+            text_calc.text = exp
+        }
+
+        btn_9.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("9")
+            text_calc.text = exp
+        }
+
+        btn_Divide.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp/")
+        }
+
+        btn_4.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("4")
+            text_calc.text = exp
+        }
+
+        btn_5.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("5")
+            text_calc.text = exp
+        }
+
+        btn_6.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("6")
+            text_calc.text = exp
+        }
+
+        btn_Multiply.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp*")
+        }
+
+        btn_1.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("1")
+            text_calc.text = exp
+        }
+
+        btn_2.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("2")
+            text_calc.text = exp
+        }
+
+        btn_3.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("3")
+            text_calc.text = exp
+        }
+
+        btn_Subtract.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp-")
+        }
+
+        btn_Dot.setOnClickListener {
+            val exp = text_calc.text
+            exp.append(".")
+            text_calc.text = exp
+        }
+
+        btn_0.setOnClickListener {
+            val exp = text_calc.text
+            exp.append("0")
+            text_calc.text = exp
+        }
+
+        btn_Add.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp+")
+        }
+
+        btn_LParen.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp(")
+        }
+
+        btn_RParen.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp)")
+        }
+
+        btn_Power.setOnClickListener {
+            val exp = text_calc.text.toString()
+            text_calc.setText("$exp^")
+        }
+
+        btn_Clear.setOnClickListener {
+            text_calc.setText("")
+        }
     }
 
 
