@@ -16,6 +16,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
+    <!--
+        layout_constraintStart_toStartOf significa dizer que o start do elemento em questão e o do especificado estarão alinhados
+        layout_constraintTop_toTopOf significa dizer que o topo do elemento em questão e o do especificado estarão alinhados
+        layout_constraintTop_toBottomOf significa dizer que o topo do elemento em questão estará alinhado com a parte de baixo do elemento especificado
+        layout_constraintStart_toEndOf significa dizer que o start do elemento em questão estará alinhado com o final do elemento especificado
+    -->
+
     <EditText
             android:id="@+id/text_calc"
             android:layout_width="match_parent"

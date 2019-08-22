@@ -14,6 +14,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Cada bloco seguinte adiciona um "ouvinte" para cada um dos botões da activity
+        // Sendo assim, ao clicar em algum dos botões, o código dentro das chaves é executado
+        // Nesse caso, a cada clique um char é concatenado a string exibida no editText
+        // A diferença está no botão de igual que ao invés de concatenar string, é chamada a funçaão eval e o resultado é exibido no textView
+        // A concatenação de strings é feita com a função append porque no texto do EditText é do tipo Editable e não uma String normal
+        // Porém a concatenação também poderia ser feita utilizando o método toString no objeto do tipo Editable, como foi feito em alguns casos 
+
         btn_7.setOnClickListener {
             val exp = text_calc.text
             exp.append("7")
@@ -127,6 +134,23 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Expressão Inválida", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    // Essa função salva um estado antes de destruir uma activity
+    // Nela passamos uma chave para identificar o que queremos salvar e o que de fato queremos salvar
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        val resultCount = text_info.text
+        outState.putCharSequence("resultCount", resultCount)
+    }
+
+    // Essa função restaura antes de criar a activity o estado salvo na função anterior através da chave que foi utilizada lá
+    // A recuperação do estado também poderia ser feita no onCreate, mas como lá já tem muita coisa, optei por chamar com essa nova função mesmo
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val resultCount = savedInstanceState.getCharSequence("resultCount")
+        text_info.text = resultCount
     }
 
 
